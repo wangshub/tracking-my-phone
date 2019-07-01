@@ -23,7 +23,7 @@ def read_log_file(fname, out_csv):
         'domain': list_domain,
         'port': list_port
     })
-    df.to_csv(out_csv)
+    df.to_csv(out_csv, index=False)
     print('saved to {}'.format(out_csv))
 
 
