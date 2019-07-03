@@ -5,6 +5,7 @@ import time
 
 
 def domain_to_ip(domain):
+    # print('parsing {}'.format(domain))
     return socket.gethostbyname(domain)
 
 
@@ -20,13 +21,14 @@ class IpGeo:
 
             data = self.searcher.btreeSearch(ip)
             loc = data["region"].decode('utf-8').split('|')
+            result['ip'] = ip
             result['city_id'] = data["city_id"]
             result['country'] = loc[0]
             result['province'] = loc[2]
             result['city'] = loc[3]
             result['operator'] = loc[4]
         except Exception as err:
-            print(err)
+            print(err, ip)
         return result
 
     def close(self):
