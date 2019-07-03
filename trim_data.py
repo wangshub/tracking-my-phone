@@ -14,6 +14,7 @@ def read_log_file(fname, out_csv):
 
     list_day = list(map(lambda x: x[1], filterd_lines))
     list_time = list(map(lambda x: x[2], filterd_lines))
+
     list_url = list(map(lambda x: x[7], filterd_lines))
     list_domain = list(map(lambda x: x.split(':')[0], list_url))
     list_port = list(map(lambda x: x.split(':')[1], list_url))
