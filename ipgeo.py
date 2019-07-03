@@ -1,28 +1,40 @@
-# -*- coding: utf-8 -*-
-import geoip2.database
+# -*- coding:utf-8 -*-
+from ip2Region import Ip2Region
+import socket
+import time
+
+
+def domain_to_ip(domain):
+    return socket.gethostbyname(domain)
 
 
 class IpGeo:
     def __init__(self, db_file):
-        self.reader = geoip2.database.Reader(db_file)
+        self.searcher = Ip2Region(db_file)
 
     def find(self, ip):
         result = {}
         try:
-            data = self.reader.city(ip)
-            result['country'] = data.country.name
-            result['city'] = data.city.name
-            result['longitude'] = data.location.longitude
-            result['latitude'] = data.location.latitude
+            if not self.searcher.isip(ip):
+                ip = domain_to_ip(ip)
+
+            data = self.searcher.btreeSearch(ip)
+            loc = data["region"].decode('utf-8').split('|')
+            result['city_id'] = data["city_id"]
+            result['country'] = loc[0]
+            result['province'] = loc[2]
+            result['city'] = loc[3]
+            result['operator'] = loc[4]
         except Exception as err:
-            print('no ip info, '+str(err))
+            print(err)
         return result
+
+    def close(self):
+        self.searcher.close()
 
 
 if __name__ == '__main__':
-    ipgeo = IpGeo('./geo/GeoLite2-City.mmdb')
-    result = ipgeo.find('121.35.100.100')
+    ipgeo = IpGeo('./geo/ip2region.db')
+    result = ipgeo.find('www.baidu.com')
     print(result)
-
-
-
+    ipgeo.close()
