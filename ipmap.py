@@ -53,4 +53,4 @@ def map_visualmap() -> Map:
     return c
 
 
-Page().add(*[fn() for fn, _ in C.charts]).render()
+Page().add(*[fn() for fn, _ in C.charts]).render('./output/render.html')
