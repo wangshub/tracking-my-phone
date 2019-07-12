@@ -69,14 +69,14 @@ def bar_base() -> Pie:
             data_pair=data_zh,
             radius=["50%", "70%"],
             label_opts=opts.LabelOpts(is_show=True, position="layoutCenter"),
-        )
+            )
             .set_global_opts(legend_opts=opts.LegendOpts(pos_left="legft", orient="vertical"))
             .set_series_opts(
             tooltip_opts=opts.TooltipOpts(
                 trigger="item", formatter="{a} <br/>{b}: {c} ({d}%)"
             ),
             label_opts=opts.LabelOpts(formatter="{b}: {c}", font_size=18)
-        )
+            )
     )
 
     return c
