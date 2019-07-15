@@ -108,3 +108,4 @@ data
 .DS_Store
 render.html
 output
+.vscode
