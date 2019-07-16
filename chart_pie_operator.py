@@ -37,7 +37,7 @@ data = [('谷歌', 84301),
 @C.funcs
 def pie_base() -> Pie:
     c = (
-        Pie(init_opts=opts.InitOpts(width="800px", height="1200px"))
+        Pie(init_opts=opts.InitOpts(width="53%", height="1100%"))
             .add("", data)
             .set_global_opts(title_opts=opts.TitleOpts(title=""))
             .set_series_opts(label_opts=opts.LabelOpts(formatter="{b}: {d}%", font_size=16))
