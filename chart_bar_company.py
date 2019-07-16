@@ -33,6 +33,8 @@ data = [('googleapis.com', 79979),
         ('baidu.com', 1274),
         ('other', 25598)]
 
+data.reverse()
+
 
 @C.funcs
 def pie_base() -> Pie:
@@ -45,4 +47,19 @@ def pie_base() -> Pie:
     return c
 
 
-Page().add(*[fn() for fn, _ in C.charts]).render('./output/map_pie_company.html')
+@C.funcs
+def bar_base() -> Bar:
+    c = (
+        Bar(init_opts=opts.InitOpts(width="100%", height="800%"))
+        .add_xaxis(xaxis_data=[x[0] for x in data])
+        .add_yaxis(series_name="公司",
+                   color='#59a2a7',
+                   yaxis_data=[x[1] for x in data])
+        .reversal_axis()
+        .set_series_opts(label_opts=opts.LabelOpts(position="right"))
+
+    )
+    return c
+
+
+Page().add(*[fn() for fn, _ in C.charts]).render('./output/map_bar_company.html')
