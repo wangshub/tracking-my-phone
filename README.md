@@ -1,6 +1,6 @@
 # 监视我的手机：数据都去哪儿了？
 
-> _**警告**: 请勿用于非法目的，非法获取他人隐私属于犯罪!_
+> _“现在的人几乎是全部透明的。我心里就想，马化腾肯定天天在看我们的微信，因为他都可以看的，随便看，这些问题非常大。” —— 李书福_
 
 <div style="text-align:center"><img src ="https://raw.githubusercontent.com/wangshub/image-hosting/master/img/20190716170641.png" width="80%" /></div>
 
