@@ -64,7 +64,7 @@ $ tail -f logs.txt
 
 **DNS 域名解析**
 
-DNS(Domain Name System)，翻译过来就是域名系统，是互联网上作为域名和 IP 地址相互映射的一个分布式数据库。获取到的记录大多数是域名，
+DNS(Domain Name System)，翻译过来就是域名系统，是互联网上作为域名和 IP 地址相互映射的一个分布式数据库。获取到的记录大多数是域名，需要先解析成 IP 地址
 
 ```python
 import socket
